@@ -1,5 +1,10 @@
 //Michal Kornacki
 //ID:22361979
+//group members:
+//Karthik Santhosh Madhav ID:22350527
+//Filip Kapusciak ID:22343091
+//Oscar Zhou ID:22338705
+//Stephen McNeill Killeen ID:22359206
 import java.util.Arrays;
 public class Image{
     private int[][] pixels;
@@ -12,6 +17,7 @@ public class Image{
         this.width = pixels[0].length;
     }
 
+    //neatly represents the 2D Array so correcting is easier.
     public String toString(){
         String grid = Arrays.deepToString(pixels); 
         grid = grid.substring(1,grid.length()-1);
@@ -19,6 +25,9 @@ public class Image{
         return grid; 
     }
 
+    /*if boolean horizontal is true then the Image is flipped horizontaly and then
+    made the default image using this.pixels operation, if horizontal is false then
+    the the image is flipped vertically and made the default image using this.pixels operation.*/
     public void flip(boolean horizontal){
         if(horizontal == true){
             int[][]flippedHorizontaly = new int[pixels.length][pixels[0].length];
@@ -52,6 +61,11 @@ public class Image{
         }
         }
 
+        /*If the boolean clockwise is set to true then the method will turn the image
+        90 degrees clockwise and then set it to the default image, this is done so the
+        cumulative effects of flipping clockwise can be shown, if clockwise is set to false
+        the image is rotated antiClockwise. This is done by rotating the image clockwise, and 
+        then flipping it verticaly and horizontaly making it rotated antiClockwise*/
         public void rotate(boolean clockwise){
             if(clockwise == true){
                 int[][] clockwiseRotation = new int[pixels[0].length][pixels.length];
